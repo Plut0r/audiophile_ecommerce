@@ -11,6 +11,8 @@ import { useAtom } from "jotai";
 import { cartsAtom } from "../store/globalAtom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function ProductPage() {
   const [count, setCount] = useState(1);
@@ -65,34 +67,46 @@ function ProductPage() {
         <div className="flex flex-col md:flex-row items-center gap-10 md:gap-24 mt-7 md:mt-14">
           {/* Desktop Image */}
           <div className="hidden lg:block">
-            <Image
-              src={product?.image.desktop ?? ""}
-              alt="product_image"
-              width={33.75 * 16}
-              height={35 * 16}
-              priority
-            />
+            {product?.image?.desktop ? (
+              <Image
+                src={product?.image.desktop}
+                alt="product_image"
+                width={33.75 * 16}
+                height={35 * 16}
+                priority
+              />
+            ) : (
+              <Skeleton width={33.75 * 16} height={35 * 16} />
+            )}
           </div>
           {/* Tablet Image */}
           <div className="hidden md:block lg:hidden">
-            <Image
-              src={product?.image.tablet ?? ""}
-              alt="product_image"
-              width={17.5625 * 16}
-              height={30 * 16}
-              priority
-            />
+            {product?.image?.tablet ? (
+              <Image
+                src={product?.image.tablet}
+                alt="product_image"
+                width={17.5625 * 16}
+                height={30 * 16}
+                priority
+              />
+            ) : (
+              <Skeleton width={17.5625 * 16} height={30 * 16} />
+            )}
           </div>
           {/* Mobile Image */}
           <div className="md:hidden w-full">
-            <Image
-              src={product?.image.mobile ?? ""}
-              alt="product_image"
-              width={13.9375 * 16}
-              height={19.875 * 16}
-              layout="responsive"
-              priority
-            />
+            {product?.image?.mobile ? (
+              <Image
+                src={product?.image.mobile}
+                alt="product_image"
+                width={13.9375 * 16}
+                height={19.875 * 16}
+                layout="responsive"
+                priority
+              />
+            ) : (
+              <Skeleton height={19.875 * 16} />
+            )}
           </div>
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">

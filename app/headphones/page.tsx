@@ -6,6 +6,8 @@ import Product from "@/components/product";
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const data = [
   {
@@ -55,6 +57,7 @@ function Headphones() {
       router.push("/earphones");
     }
   }
+
   return (
     <Layout>
       {/* header */}
@@ -69,34 +72,49 @@ function Headphones() {
         <div className="w-full flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-48 items-center">
           {/* Desktop Image */}
           <div className="hidden lg:block">
-            <Image
-              src={data[0].desktop_image}
-              alt="product_image"
-              width={33.75 * 16}
-              height={35 * 16}
-            />
+            {data[0].desktop_image ? (
+              <Image
+                src={data[0].desktop_image}
+                alt="product_image"
+                width={33.75 * 16}
+                height={35 * 16}
+                priority
+              />
+            ) : (
+              <Skeleton width={33.75 * 16} height={35 * 16} />
+            )}
           </div>
           {/* Tablet Image */}
           <div className="hidden md:block lg:hidden w-full">
-            <Image
-              src={data[0].tablet_image}
-              alt="product_image"
-              width={43.0625 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[0].tablet_image ? (
+              <Image
+                src={data[0].tablet_image}
+                alt="product_image"
+                width={43.0625 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+                priority
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
           {/* Mobile Image */}
           <div className="md:hidden w-full">
-            <Image
-              src={data[0].mobile_image}
-              alt="product_image"
-              width={20.4375 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[0].mobile_image ? (
+              <Image
+                src={data[0].mobile_image}
+                alt="product_image"
+                width={20.4375 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+                priority
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
           <div className="flex flex-col items-center lg:items-start gap-5 text-center lg:text-left">
             <div className="flex flex-col gap-1">
@@ -136,68 +154,92 @@ function Headphones() {
           </div>
           {/* Desktop Image */}
           <div className="hidden lg:block">
-            <Image
-              src={data[1].desktop_image}
-              alt="product_image"
-              width={33.75 * 16}
-              height={35 * 16}
-            />
+            {data[1].desktop_image ? (
+              <Image
+                src={data[1].desktop_image}
+                alt="product_image"
+                width={33.75 * 16}
+                height={35 * 16}
+              />
+            ) : (
+              <Skeleton width={33.75 * 16} height={35 * 16} />
+            )}
           </div>
           {/* Tablet Image */}
           <div className="hidden md:block lg:hidden w-full">
-            <Image
-              src={data[1].tablet_image}
-              alt="product_image"
-              width={43.0625 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[1].tablet_image ? (
+              <Image
+                src={data[1].tablet_image}
+                alt="product_image"
+                width={43.0625 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
           {/* Mobile Image */}
           <div className="md:hidden w-full">
-            <Image
-              src={data[1].mobile_image}
-              alt="product_image"
-              width={20.4375 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[1].mobile_image ? (
+              <Image
+                src={data[1].mobile_image}
+                alt="product_image"
+                width={20.4375 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
         </div>
         {/* Category 3 */}
         <div className="w-full flex flex-col lg:flex-row gap-8 md:gap-16 lg:gap-48 items-center mb-10 lg:mb-20">
           {/* Desktop Image */}
           <div className="hidden lg:block">
-            <Image
-              src={data[2].desktop_image}
-              alt="product_image"
-              width={33.75 * 16}
-              height={35 * 16}
-            />
+            {data[2].desktop_image ? (
+              <Image
+                src={data[2].desktop_image}
+                alt="product_image"
+                width={33.75 * 16}
+                height={35 * 16}
+              />
+            ) : (
+              <Skeleton width={33.75 * 16} height={35 * 16} />
+            )}
           </div>
           {/* Tablet Image */}
           <div className="hidden md:block lg:hidden w-full">
-            <Image
-              src={data[1].tablet_image}
-              alt="product_image"
-              width={43.0625 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[2].tablet_image ? (
+              <Image
+                src={data[2].tablet_image}
+                alt="product_image"
+                width={43.0625 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
           {/* Mobile Image */}
           <div className="md:hidden w-full">
-            <Image
-              src={data[0].mobile_image}
-              alt="product_image"
-              width={20.4375 * 16}
-              height={22 * 16}
-              style={{ width: "auto", height: "auto" }}
-              layout="responsive"
-            />
+            {data[2].mobile_image ? (
+              <Image
+                src={data[2].mobile_image}
+                alt="product_image"
+                width={20.4375 * 16}
+                height={22 * 16}
+                style={{ width: "auto", height: "auto" }}
+                layout="responsive"
+              />
+            ) : (
+              <Skeleton height={22 * 16} />
+            )}
           </div>
           <div className="flex flex-col items-center lg:items-start gap-5 text-center lg:text-left">
             <h3 className="text-black text-[1.75rem] md:text-[2.5rem] font-bold leading-[2.75rem] uppercase">

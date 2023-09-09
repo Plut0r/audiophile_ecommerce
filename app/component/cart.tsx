@@ -5,6 +5,8 @@ import { cartsAtom } from "../store/globalAtom";
 import { data } from "../../components/data";
 import Image from "next/image";
 import { BiMinus, BiPlus } from "react-icons/bi";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 interface CART {
   open: boolean;
@@ -88,14 +90,18 @@ function Cart({ open, setOpen }: CART) {
             <div key={item.id} className="flex justify-between items-center">
               <div className="flex gap-3 items-center">
                 <div>
-                  <Image
-                    src={item.image || ""}
-                    alt="cart-image"
-                    width={4 * 16}
-                    height={4 * 16}
-                    className="rounded-[0.5rem]"
-                    priority
-                  />
+                  {item.image ? (
+                    <Image
+                      src={item.image || ""}
+                      alt="cart-image"
+                      width={4 * 16}
+                      height={4 * 16}
+                      className="rounded-[0.5rem]"
+                      priority
+                    />
+                  ) : (
+                    <Skeleton width={4 * 16} height={4 * 16} />
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <h3 className="text-black text-[0.9375rem] font-bold leading-[1.5625rem]">
