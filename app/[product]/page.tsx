@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { data } from "../../components/data";
 import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
-import { useSetAtom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import { cartsAtom } from "../store/globalAtom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -152,7 +152,7 @@ function ProductPage() {
             </h3>
             <div className="flex flex-col gap-3">
               {product?.includes.map((item) => (
-                <div className="flex items-center gap-5">
+                <div key={item.item} className="flex items-center gap-5">
                   <p className="text-[#D87D4A] text-[0.9375rem] font-bold">
                     {item.quantity}x
                   </p>
@@ -265,7 +265,7 @@ function ProductPage() {
           </h3>
           <div className="flex flex-col md:flex-row gap-16">
             {product?.others.map((item) => (
-              <div className="flex flex-col gap-4">
+              <div key={item.slug} className="flex flex-col gap-4">
                 <div>
                   {/* Desktop Image */}
                   <Image

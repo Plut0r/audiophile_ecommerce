@@ -85,7 +85,7 @@ function Cart({ open, setOpen }: CART) {
             <p className="text-center">No cart item added yet</p>
           )}
           {cart?.map((item) => (
-            <div className="flex justify-between items-center">
+            <div key={item.id} className="flex justify-between items-center">
               <div className="flex gap-3 items-center">
                 <div>
                   <Image

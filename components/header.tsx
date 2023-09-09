@@ -65,6 +65,7 @@ function Header({ border }: Header) {
         <div className="flex items-center gap-10">
           {nav.map((item) => (
             <Link
+              key={item.id}
               href={item.path}
               className="text-white text-[0.8125rem] font-bold uppercase"
             >

@@ -37,9 +37,9 @@ function Footer() {
             <div className="flex flex-col gap-10">
               <p className="text-white opacity-50 text-[0.9375rem] font-medium lg:w-[33.75rem] text-center md:text-left">
                 Audiophile is an all in one stop to fulfill your audio needs.
-                We're a small team of music lovers and sound specialists who are
+                We&apos;re a small team of music lovers and sound specialists who are
                 devoted to helping you get the most out of personal audio. Come
-                and visit our demo facility - we’re open 7 days a week.
+                and visit our demo facility - we&apos;re open 7 days a week.
               </p>
               <div className="flex flex-col md:flex-row gap-10 justify-between items-center mt-10 lg:mt-0">
                 <p className="text-white opacity-50 text-[0.9375rem] font-bold lg:mt-10">
